@@ -4,7 +4,7 @@ bio: '此刻便是开始'
 
 # if it's an external image, update below for true
 external-image: false
-picture: 'assets/images/profile.jpg'
+picture: 'assets/images/me.jpg'
 
 url: http://sergiokopplin.github.io/indigo
 # your url: http://USERNAME.github.io
