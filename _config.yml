@@ -1,6 +1,6 @@
 # main text of home
-name: John Doe
-bio: 'A Man who travels the world eating noodles'
+name: T猛T
+bio: '此刻便是开始'
 
 # if it's an external image, update below for true
 external-image: false
@@ -20,17 +20,17 @@ analytics-google: 'UA-MYANALYTICS'
 disqus: mydisqus
 
 # if you don't have any of social below, comment the line
-facebook: myfacebook
-twitter: mytwitter
+#facebook: myfacebook
+#twitter: mytwitter
 # google: mygoogle
 # instagram: myinstagram
 # pinterest: mypinterest
-linkedin: mylinkedin
-youtube: myyoutube
-spotify: myspotify
-github: mygithub
-medium: medium
-email: myemail@gmail.com
+#linkedin: mylinkedin
+#youtube: myyoutube
+#spotify: myspotify
+github: https://github.com/TmengT
+#medium: medium
+email: wencai0316@163.com
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal
