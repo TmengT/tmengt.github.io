@@ -1,0 +1,96 @@
+---
+title: "TCP与UDP的区别"
+layout: post
+date: 2016-02-24 22:44
+tag: C/C++
+blog: true
+star: true
+---
+
+## Summary:
+
+### 一、TCP与UDP的区别
+{% highlight html %}
+   基于连接与无连接 
+　　对系统资源的要求（TCP较多，UDP少） 
+　　UDP程序结构较简单 
+　　流模式与数据报模式 
+　　TCP保证数据正确性，UDP可能丢包 
+　　TCP保证数据顺序，UDP不保证 
+　　部分满足以下几点要求时，应该采用UDP 面向数据报方式 网络数据大多为短消息 
+　　拥有大量Client 
+　　对数据安全性无特殊要求 
+　　网络负担非常重，但对响应速度要求高 
+　　具体编程时的区别 socket()的参数不同 
+　　UDP Server不需要调用listen和accept 
+　　UDP收发数据用sendto/recvfrom函数 
+　　TCP：地址信息在connect/accept时确定 
+　　UDP：在sendto/recvfrom函数中每次均 需指定地址信息 
+　　UDP：shutdown函数无效
+{% endhighlight %}
+
+
+### 二、man----socket
+{% highlight html %}
+　　通过查看socket的man手册可以看到socket函数的第一个参数的值可以为下面这些值:
+　　Name Purpose 
+　　PF_UNIX, PF_LOCAL Local communication 
+　　PF_INET IPv4 Internet protocols 
+　　PF_INET6 IPv6 Internet protocols 
+　　PF_IPX IPX - Novell protocols 
+　　PF_NETLINK Kernel user interface device 
+　　PF_X25 ITU-T X.25 / ISO-8208 protocol 
+　　PF_AX25 Amateur radio AX.25 protocol 
+　　PF_ATMPVC Access to raw ATM PVCs 
+　　PF_APPLETALK Appletalk 
+　　PF_PACKET Low level packet interface
+{% endhighlight %}
+
+### 三、编程区别
+{% highlight html %}
+ 通常我们在说到网络编程时默认是指TCP编程，
+ 即用前面提到的socket函数创建一个socket用于TCP通讯，
+ 函数参数我们通常填为SOCK_STREAM。即socket(PF_INET, SOCK_STREAM, 0)，
+ 这表示建立一个socket用于流式网络通讯。 　  			    SOCK_STREAM这种的特点是面向连接的，
+ 即每次收发数据之前必须通过connect建立连接，
+ 也是双向的，即任何一方都可以收发数据，
+ 协议本身提供了一些保障机制保证它是可靠的、有序的，即每个包按照发送的顺序到达接收方。 
+ 而SOCK_DGRAM这种是User Datagram rotocol协议的网络通讯，它是无连接的，不可靠的，因为通讯双方发送数据后不知道对方是否已经收到数据，	 是否正常收到数据。任何一方建立一个socket以后就可以用sendto发送数据，也可以用recvfrom接收数据。
+ 根本不关心对方是否存在，是否发送了数据。它的特点是通讯速度比较快。大家都知道TCP是要经过三次握手的，而UDP没有。 
+
+　　基于上述不同，UDP和TCP编程步骤也有些不同，如下： 
+　　TCP编程的服务器端一般步骤是： 
+　　1、创建一个socket，用函数socket()； 
+　　2、设置socket属性，用函数setsockopt(); * 可选 
+　　3、绑定IP地址、端口等信息到socket上，用函数bind(); 
+　　4、开启监听，用函数listen()； 
+　　5、接收客户端上来的连接，用函数accept()； 
+　　6、收发数据，用函数send()和recv()，或者read()和write(); 
+　　7、关闭网络连接； 
+　　8、关闭监听； 
+
+　　TCP编程的客户端一般步骤是： 
+　　1、创建一个socket，用函数socket()； 
+　　2、设置socket属性，用函数setsockopt();* 可选 
+　　3、绑定IP地址、端口等信息到socket上，用函数bind();* 可选 
+　　4、设置要连接的对方的IP地址和端口等属性； 
+　　5、连接服务器，用函数connect()； 
+　　6、收发数据，用函数send()和recv()，或者read()和write(); 
+　　7、关闭网络连接；
+
+　　与之对应的UDP编程步骤要简单许多，分别如下： 
+　　UDP编程的服务器端一般步骤是： 
+　　1、创建一个socket，用函数socket()； 
+　　2、设置socket属性，用函数setsockopt();* 可选 
+　　3、绑定IP地址、端口等信息到socket上，用函数bind(); 
+　　4、循环接收数据，用函数recvfrom(); 
+　　5、关闭网络连接； 
+
+　　UDP编程的客户端一般步骤是： 
+　　1、创建一个socket，用函数socket()； 
+　　2、设置socket属性，用函数setsockopt();* 可选 
+　　3、绑定IP地址、端口等信息到socket上，用函数bind();* 可选 
+　　4、设置对方的IP地址和端口等属性; 
+　　5、发送数据，用函数sendto(); 
+　　6、关闭网络连接；
+ {% endhighlight %}

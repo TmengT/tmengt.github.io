@@ -6,7 +6,7 @@ bio: '此刻便是开始'
 external-image: false
 picture: 'assets/images/profile.jpg'
 
-url: http://www.tmengt.com/
+url: http://localhost:4000/
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -17,7 +17,7 @@ highlighter: rouge
 analytics-google: 'UA-MYANALYTICS'
 
 # if you don't want comments in your posts, set to false
-disqus: mydisqus
+disqus: T猛T
 
 # if you don't have any of social below, comment the line
 #facebook: myfacebook
@@ -73,3 +73,5 @@ jekyll-mentions:
     base_url: https://github.com
 
 exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, indigo-gh-pages.zip, Rakefile, screen-shot.png, travis.sh]
+
+
