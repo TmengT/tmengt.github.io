@@ -5,8 +5,8 @@ date: 2016-04-1 10:26
 tag: C/C++
 blog: true
 star: true
-
 ---
+
 ## content:
  
 {% highlight raw %}
