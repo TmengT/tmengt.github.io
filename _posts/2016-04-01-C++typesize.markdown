@@ -15,8 +15,8 @@ char         1个字节8位
 short        2个字节16位  
 int          2个字节16位  
 long         4个字节32位  
-指针          2个字节16位
-{% endhighlight %}   
+指针          2个字节16位 
+{% endhighlight %}
 
 {% highlight raw %}
 -（2）32位平台  
