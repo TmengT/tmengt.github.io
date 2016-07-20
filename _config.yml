@@ -60,13 +60,9 @@ related: true
 
 # do you want some animations?
 animation: true
-<<<<<<< HEAD
 
-port: 5001
-
-=======
 #port: 5001
->>>>>>> bb5b1013c7967fd31b6acc3263a7371578d50409
+
 gems:
   - jemoji
   - jekyll-mentions
