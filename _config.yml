@@ -6,7 +6,7 @@ bio: '此刻便是开始'
 external-image: false
 picture: 'assets/images/profile.jpg'
 
-url: http://www.tmengt.com/
+url: http://localhost:5001/
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
@@ -59,7 +59,7 @@ related: true
 
 # do you want some animations?
 animation: true
-
+port: 5001
 gems:
   - jemoji
   - jekyll-mentions
