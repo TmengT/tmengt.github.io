@@ -5,9 +5,9 @@ bio: '此刻便是开始'
 # if it's an external image, update below for true
 external-image: false
 picture: 'assets/images/profile.jpg'
-port: 5001
-url: http://localhost:5001/
-#url: http://www.tmengt.com/ 
+#port: 5001
+#url: http://localhost:5001
+url: http://www.tmengt.com
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
