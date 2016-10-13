@@ -7,7 +7,7 @@ external-image: false
 picture: 'assets/images/profile.jpg'
 #port: 5001
 #url: http://localhost:5001
-url: http://www.tmengt.com
+url: http://blog.tmengt.com
 # your url: http://USERNAME.github.io
 
 permalink: /:title/
